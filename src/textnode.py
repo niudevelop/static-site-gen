@@ -44,7 +44,7 @@ def text_node_to_html_node(text_node):
         case TextType.IMAGE:
             return LeafNode(
                 tag="img",
-                value=None,
+                value="",
                 props={"alt": text_node.text, "src": text_node.url},
             )
         case _:

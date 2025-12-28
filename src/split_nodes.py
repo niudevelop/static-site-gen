@@ -1,7 +1,7 @@
 
 from textnode import TextNode
 from md_types import TextType
-from extract_markdown import extract_markdown_images, extract_markdown_links
+from markdown import extract_markdown_images, extract_markdown_links
 
 
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
@@ -77,6 +77,7 @@ def text_to_textnodes(text):
     nodes = [TextNode(text, TextType.TEXT)]
     nodes = split_nodes_delimiter(nodes, "**", TextType.BOLD)
     nodes = split_nodes_delimiter(nodes, "__", TextType.ITALIC)
+    nodes = split_nodes_delimiter(nodes, "_", TextType.ITALIC)
     nodes = split_nodes_delimiter(nodes, "`", TextType.CODE)
     nodes = split_nodes_link(nodes)
     nodes = split_nodes_images(nodes)
